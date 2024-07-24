@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "25158229650",
+    "project_id": "contract-app-rnavarijo",
+    "storage_bucket": "contract-app-rnavarijo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:25158229650:android:ff6e75139cf44b2e53d04b",
+        "android_client_info": {
+          "package_name": "com.example.contractapp16"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL0S5TeFsLL5UK15FyGGr7VYlE5eMUTB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
