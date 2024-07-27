@@ -10,6 +10,11 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public class MainActivity extends AppCompatActivity {
     // Declare variables here
     FloatingActionButton back_button;
@@ -61,5 +66,47 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            if (data != null) {
+                Uri uri = data.getData();
+                saveFileToInternalStorage(uri);
+            }
+        }
+    }
+
+    private void saveFileToInternalStorage(Uri uri) {
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
+        try {
+            inputStream = getContentResolver().openInputStream(uri);
+            File file = new File(getFilesDir(), "template_" + System.currentTimeMillis() + ".docx");
+            outputStream = new FileOutputStream(file);
+
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) > 0) {
+                outputStream.write(buffer, 0, length);
+            }
+
+            Toast.makeText(this, "Template saved successfully", Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Failed to save template", Toast.LENGTH_SHORT).show();
+        } finally {
+            try {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }
