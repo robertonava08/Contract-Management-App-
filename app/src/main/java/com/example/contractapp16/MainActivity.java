@@ -1,7 +1,9 @@
 package com.example.contractapp16;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.content.Intent;
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton back_button;
 
     FloatingActionButton template_button; // Button to choose a new contract template from device
+
+    FloatingActionButton create_contract;
 
 
     @Override
@@ -50,7 +54,21 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        //  Functionality for the create contract button
+        create_contract = findViewById(R.id.crt_contract_btn);
+
+        create_contract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CreateContract.class);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
+
     // Bracket above is for on create method
     private void openFilePicker() {
         // Create a new intent to open a document
