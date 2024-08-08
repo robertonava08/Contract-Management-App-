@@ -45,11 +45,14 @@
         app:srcCompat="@drawable/baseline_delete_forever_24"
         app:tint="@color/app_theme_light"/>
 
+
     <Spinner
         android:id="@+id/template_spinner"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="88dp"
+        android:background="@drawable/custom_spinner_background"
+        android:dropDownSelector="@drawable/edit_text_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
