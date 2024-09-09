@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-         // This section will be to initialize the template button
+        // This section will be to initialize the template button
         template_button = findViewById(R.id.template_upload_btn);
         template_button.setOnClickListener(new View.OnClickListener() {
             @Override
